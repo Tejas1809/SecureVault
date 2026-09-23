@@ -1,0 +1,73 @@
+.dashboard {
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+.dashboard-content {
+  padding: 32px 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-header h2 {
+  font-size: 24px;
+  color: #e2e8f0;
+}
+
+.entry-count {
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 14px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  width: 220px;
+}
+
+.search-input:focus {
+  border-color: #6366f1;
+}
+
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.loading, .empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-greeting {
+  color: #94a3b8;
+  font-size: 14px;
+}

@@ -1,0 +1,97 @@
+.vault-card {
+  background: #1e293b;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.vault-card:hover {
+  border-color: #6366f1;
+}
+
+.vault-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.site-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.site-url {
+  font-size: 12px;
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.site-url:hover {
+  text-decoration: underline;
+}
+
+.category-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.vault-card-body {
+  padding: 16px 20px;
+}
+
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.field-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 72px;
+}
+
+.field-value {
+  font-size: 14px;
+  color: #cbd5e1;
+  text-align: right;
+  word-break: break-all;
+}
+
+.password-field {
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.notes {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.vault-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px 16px;
+  border-top: 1px solid #334155;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
