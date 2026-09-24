@@ -1,7 +1,7 @@
 // BUG #6: Password generator only uses letters and numbers
 // No special characters included — generated passwords are weak
 const generatePassword = (length = 12) => {
-  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
   // Missing: !@#$%^&*()_+-=[]{}|;:,.<>?
   
   let password = '';
