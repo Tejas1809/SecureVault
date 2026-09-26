@@ -5,7 +5,7 @@ const getVaultEntries = async (req, res) => {
   try {
     // BUG #8: No pagination — returns ALL records at once
     // BUG #5: Returns all users' entries, not just logged-in user's
-    const entries = await Vault.find();
+   const entries = await Vault.find({ userId: req.user._id });
 
     res.status(200).json(entries);
   } catch (error) {
@@ -77,9 +77,10 @@ const searchVaultEntries = async (req, res) => {
 
   try {
     // BUG #5: Search returns all users' matching entries, not just logged-in user's
-    const entries = await Vault.find({
-      siteName: { $regex: query, $options: 'i' }
-    });
+   const entries = await Vault.find({
+  userId: req.user._id,
+  siteName: { $regex: query, $options: 'i' }
+});
 
     res.status(200).json(entries);
   } catch (error) {
