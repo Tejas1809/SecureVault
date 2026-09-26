@@ -8,7 +8,7 @@ const VaultCard = ({ entry, onDelete }) => {
   const handleCopy = () => {
     // BUG #14: Copies username instead of password
     // Should be: navigator.clipboard.writeText(entry.password)
-    navigator.clipboard.writeText(entry.username);
+    navigator.clipboard.writeText(entry.password);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
