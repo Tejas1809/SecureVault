@@ -47,8 +47,14 @@ const login = async (req, res) => {
 
 // Logout
 const logout = async (req, res) => {
-  // BUG #11: Token is not stored/invalidated on logout
-  // Frontend just deletes the token locally, but token remains valid on server
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (token) {
+    await User.findByIdAndUpdate(req.user._id, {
+      $push: { invalidatedTokens: token }
+    });
+  }
+
   res.status(200).json({ message: 'Logged out successfully' });
 };
 

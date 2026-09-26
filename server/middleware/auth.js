@@ -20,11 +20,15 @@ const protect = async (req, res, next) => {
     // BUG #11: Invalidated tokens (logged out) are still accepted
     // No check against invalidatedTokens list in User model
     req.user = await User.findById(decoded.id).select('-password');
-
+    
+    
     if (!req.user) {
       return res.status(401).json({ message: 'User not found' });
     }
-
+    
+    if (req.user.invalidatedTokens.includes(token)) {
+      return res.status(401).json({ message: 'Token has been invalidated' });
+    }
     next();
   } catch (error) {
     return res.status(401).json({ message: 'Not authorized, token failed' });
