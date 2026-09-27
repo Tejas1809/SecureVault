@@ -78,7 +78,7 @@ const Register = () => {
 
           {/* BUG #13: PasswordStrength receives wrong prop name
               Component expects 'password' but receives 'value' */}
-          <PasswordStrength value={formData.password} />
+          <PasswordStrength password={formData.password} />
 
           {error && <p className="error-msg">{error}</p>}
           {success && <p className="success-msg">{success}</p>}
