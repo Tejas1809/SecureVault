@@ -65,6 +65,7 @@ const Dashboard = () => {
       // BUG #15: Modal closes but entries list is NOT refreshed
       // fetchEntries() is never called after adding
       setShowModal(false);
+      fetchEntries();   
     } catch (error) {
       console.error('Add entry failed', error);
     }
