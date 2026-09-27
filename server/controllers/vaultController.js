@@ -61,7 +61,14 @@ const deleteVaultEntry = async (req, res) => {
 
   try {
     // BUG #7: No ownership check — any logged-in user can delete any entry
-    const entry = await Vault.findByIdAndDelete(id);
+    const entry = await Vault.findOne({
+          _id: id,
+           userId: req.user._id
+      });
+
+      if (!entry) return res.status(403).json({ message: 'Not authorized to delete this entry' });
+
+      await Vault.findByIdAndDelete(id);
 
     if (!entry) return res.status(404).json({ message: 'Entry not found' });
 
