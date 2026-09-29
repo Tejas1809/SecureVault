@@ -1,4 +1,17 @@
 const Vault = require('../models/Vault');
+const crypto = require('crypto');
+const encrypt = (text) => {
+  const cipher = crypto.createCipheriv(
+    'aes-256-cbc',
+    Buffer.from(process.env.ENCRYPTION_KEY, 'hex'),
+    Buffer.alloc(16, 0)
+  );
+
+  let encrypted = cipher.update(text, 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+
+  return encrypted;
+};
 
 // Get all vault entries
 const getVaultEntries = async (req, res) => {
@@ -24,7 +37,7 @@ const addVaultEntry = async (req, res) => {
       siteName,
       siteUrl,
       username,
-      password, // plain text stored directly
+      password: encrypt(password), // plain text stored directly
       category,
       notes
     });
